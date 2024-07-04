@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Samuel-Ricardo/node_serial_communication/issues"
   },
-  "homepage": "https://github.com/Samuel-Ricardo/node_serial_communication#readme"
+  "homepage": "https://github.com/Samuel-Ricardo/node_serial_communication#readme",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
