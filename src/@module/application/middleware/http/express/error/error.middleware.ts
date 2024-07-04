@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from 'express';
-import { AppError } from '../../../../../../@lib/error/error.lib';
+import { AppError } from '../../../../../../@lib/error/app.error';
 
 export const ERROR_MIDDLEWARE: ErrorRequestHandler = (
   error,
