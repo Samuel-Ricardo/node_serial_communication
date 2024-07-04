@@ -1,3 +1,3 @@
 import cors from 'cors';
 
-export const CORS = cors({ origin: '*' });
+export const EXPRESS_CORS = cors({ origin: '*' });
