@@ -1,3 +1,3 @@
-import { Router } from 'express';
+import { json } from 'express';
 
-export const EXPRESS_ROUTER = Router();
+export const EXPRESS_BODY_PARSER = json();
