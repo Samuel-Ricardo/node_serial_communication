@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
 import { logger } from '../../../../../../../@lib/log/logger.lib';
+import { NoDataProvidedError } from '../../../../../../../@lib/error/validation/no_data.error';
 
 export const ZOD_VALIDATION_MIDDLEWARE =
   (schema: z.ZodSchema) =>
@@ -12,8 +13,8 @@ export const ZOD_VALIDATION_MIDDLEWARE =
       );
 
       if (
-        Object.keys({ ...req.body }).length > 0 ||
-        Object.keys({ ...req.params }).length > 0
+        Object.keys({ ...req.body }).length > -1 ||
+        Object.keys({ ...req.params }).length > -1
       ) {
         return schema.parse({ ...req.body, ...req.params });
       }
