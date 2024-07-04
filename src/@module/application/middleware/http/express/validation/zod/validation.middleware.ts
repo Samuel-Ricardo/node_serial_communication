@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { logger } from '../../../../../../../@lib/log/logger.lib';
 import { NoDataProvidedError } from '../../../../../../../@lib/error/validation/no_data.error';
 
-export const ZOD_VALIDATION_MIDDLEWARE =
+export const ZOD_VALIDATOR_MIDDLEWARE =
   (schema: z.ZodSchema) =>
   (req: Request, res: Response, next: NextFunction) => {
     try {
