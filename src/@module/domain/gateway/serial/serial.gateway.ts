@@ -3,7 +3,7 @@ export interface ISerialPortGateway {
   close(): Promise<void>;
   onOpen(callback: () => void): void;
   onClose(callback: () => void): void;
-  read(size?: number): Promise<String>;
-  write(buffer: Buffer): Promise<void>;
+  read(size?: number): Promise<Buffer>;
+  write(data: Buffer): Promise<void>;
   stream(read: Function): NodeJS.ReadWriteStream;
 }

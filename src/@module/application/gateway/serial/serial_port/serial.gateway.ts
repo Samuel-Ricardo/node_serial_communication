@@ -49,13 +49,24 @@ export class SerialPortGateway implements ISerialPortGateway {
 
   async read(size?: number) {
     await this.open();
-    const result = this.engine.read() as string;
+    const result = Buffer.from(this.engine.read());
     await this.close();
     return result;
   }
 
-  write(buffer: Buffer): Promise<void> {
-    throw new Error('Method not implemented.');
+  async write(data: Buffer) {
+    await this.open();
+    this.engine.write(
+      data,
+      (error) =>
+        error ??
+        logger.error({
+          context: 'SERIAL_PORT_GATEWAY',
+          message: 'Error writing to serial port',
+          error,
+        }),
+    );
+    await this.close();
   }
   stream(read: Function): NodeJS.ReadWriteStream {
     throw new Error('Method not implemented.');
