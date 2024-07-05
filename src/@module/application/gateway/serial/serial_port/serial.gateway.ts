@@ -9,7 +9,9 @@ export class SerialPortGateway implements ISerialPortGateway {
   constructor(
     @inject(MODULE.INFRA.ENGINE.GATEWEAY.SERIAL.SERIAL_PORT)
     private readonly engine: SerialPort,
-  ) {}
+  ) {
+    this.engine.setEncoding('utf-8');
+  }
 
   async open() {
     if (!this.engine.isOpen)
@@ -36,15 +38,22 @@ export class SerialPortGateway implements ISerialPortGateway {
           }),
       );
   }
+
   onOpen(callback: () => void) {
     this.engine.on('open', callback);
   }
+
   onClose(callback: () => void) {
     this.engine.on('close', callback);
   }
-  read(): Promise<Buffer> {
-    throw new Error('Method not implemented.');
+
+  async read(size?: number) {
+    await this.open();
+    const result = this.engine.read() as string;
+    await this.close();
+    return result;
   }
+
   write(buffer: Buffer): Promise<void> {
     throw new Error('Method not implemented.');
   }
