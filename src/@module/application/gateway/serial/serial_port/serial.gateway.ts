@@ -36,8 +36,8 @@ export class SerialPortGateway implements ISerialPortGateway {
           }),
       );
   }
-  onOpen(callback: Function): void {
-    throw new Error('Method not implemented.');
+  onOpen(callback: () => void) {
+    this.engine.on('open', callback);
   }
   onClose(callback: Function): void {
     throw new Error('Method not implemented.');
