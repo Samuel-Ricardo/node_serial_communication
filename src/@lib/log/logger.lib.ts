@@ -17,7 +17,7 @@ export const logger = {
     }: {
       context: string;
       message: string;
-      error?: Error;
+      error?: Error | null | undefined;
     },
     ...data: any[]
   ) => console.error(`[${context}] | ${message} `, error, ...data),

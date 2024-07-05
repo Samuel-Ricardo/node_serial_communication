@@ -2,6 +2,7 @@ import { inject, injectable } from 'inversify';
 import { ISerialPortGateway } from '../../../../domain/gateway/serial/serial.gateway';
 import { SerialPort } from 'serialport';
 import { MODULE } from '../../../../app.registry';
+import { logger } from '../../../../../@lib/log/logger.lib';
 
 @injectable()
 export class SerialPortGateway implements ISerialPortGateway {
@@ -10,9 +11,19 @@ export class SerialPortGateway implements ISerialPortGateway {
     private readonly engine: SerialPort,
   ) {}
 
-  open(): Promise<void> {
-    throw new Error('Method not implemented.');
+  async open() {
+    if (!this.engine.isOpen)
+      this.engine.open(
+        (e) =>
+          e ??
+          logger.error({
+            context: 'SERIAL_PORT_GATEWAY',
+            message: 'Error opening serial port',
+            error: e,
+          }),
+      );
   }
+
   close(): Promise<void> {
     throw new Error('Method not implemented.');
   }
