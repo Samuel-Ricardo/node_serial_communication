@@ -8,7 +8,7 @@ import { injectEngine } from '../../engine/engine.module';
 import { SWAGGER_ENGINE_TYPE } from '../../../../@types/module/infra/engine/documentation/swagger.type';
 
 @injectable()
-export class SwaggerModule
+export class SwaggerDocumentation
   implements IDocumentationModule<RequestHandler, RequestHandler>
 {
   @injectEngine(MODULE.INFRA.ENGINE.DOCS.SWAGGER)
