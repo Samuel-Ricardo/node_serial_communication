@@ -1,4 +1,4 @@
-export interface IDocumentationModule<S, D> {
+export interface IDocumentation<S, D> {
   server(): S;
   setup(): D;
 }
