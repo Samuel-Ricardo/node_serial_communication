@@ -24,8 +24,17 @@ export class SerialPortGateway implements ISerialPortGateway {
       );
   }
 
-  close(): Promise<void> {
-    throw new Error('Method not implemented.');
+  async close() {
+    if (this.engine.isOpen)
+      this.engine.close(
+        (error) =>
+          error ??
+          logger.error({
+            context: 'SERIAL_PORT_GATEWAY',
+            message: 'Error closing serial port',
+            error,
+          }),
+      );
   }
   onOpen(callback: Function): void {
     throw new Error('Method not implemented.');
