@@ -1,0 +1,5 @@
+export const GATEWAY_ENGINE_REGISTRY = {
+  SERIAL: {
+    SERIAL_PORT: Symbol.for('MODULE::INFRA::ENGINE::GATEWAY::SERIAL'),
+  },
+};
