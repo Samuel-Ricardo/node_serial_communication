@@ -1,3 +1,3 @@
 import swagger from 'swagger-ui-express';
 
-export const SWAGGER = swagger;
+export const SWAGGER_ENGINE = swagger;
