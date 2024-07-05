@@ -68,7 +68,16 @@ export class SerialPortGateway implements ISerialPortGateway {
     );
     await this.close();
   }
-  stream(read: Function): NodeJS.ReadWriteStream {
-    throw new Error('Method not implemented.');
+  stream(read: (chunk: Buffer) => void) {
+    this.engine.open((error) => {
+      if (error)
+        return logger.error({
+          context: 'SERIAL_PORT_GATEWAY',
+          message: 'Error opening serial port',
+          error,
+        });
+
+      this.engine.on('data', read);
+    });
   }
 }
