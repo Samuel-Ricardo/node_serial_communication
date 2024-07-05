@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 import { MODULES } from './@module/app.factory';
 
 const APP = MODULES.INFRA.SERVER.HTTP.EXPRESS.APP();

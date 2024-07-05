@@ -1,6 +1,6 @@
 import { MODULE } from '../../../app.registry';
 import { injectable } from 'inversify';
-import { IDocumentationModule } from '../documentation.interface';
+import { IDocumentation } from '../documentation.interface';
 import { RequestHandler } from 'express';
 
 import DOCUMENTATION from '../../../../../docs/swagger.json';
@@ -9,7 +9,7 @@ import { SWAGGER_ENGINE_TYPE } from '../../../../@types/module/infra/engine/docu
 
 @injectable()
 export class SwaggerDocumentation
-  implements IDocumentationModule<RequestHandler, RequestHandler>
+  implements IDocumentation<RequestHandler, RequestHandler>
 {
   @injectEngine(MODULE.INFRA.ENGINE.DOCS.SWAGGER)
   private readonly _engine!: SWAGGER_ENGINE_TYPE;
