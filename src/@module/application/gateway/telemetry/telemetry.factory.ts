@@ -1,4 +1,4 @@
-import { IPowertrainGateway } from '../../../../domain/gateway/telemetry/powertrain/powertrain.gateway';
+import { IPowertrainGateway } from '../../../domain/gateway/telemetry/powertrain/powertrain.gateway';
 import { SERIAL_TELEMETRY_GATEWAY_MODULE } from './telemetry.module';
 import { SERIAL_TELEMETRY_GATEWAY_REGISTRY } from './telemetry.registy';
 
