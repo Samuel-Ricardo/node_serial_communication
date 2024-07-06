@@ -14,4 +14,8 @@ export class Geography {
       timestamp: this.timestamp,
     };
   }
+
+  static fromDTO(DTO: IGeographyDTO) {
+    return new Geography(DTO.latitude, DTO.longitude, DTO.timestamp);
+  }
 }
