@@ -4,7 +4,9 @@ import { PowertrainController } from '../../../../controller/telemetry/powertrai
 import { Router } from 'express';
 import { AppError } from '../../../../../../@lib/error/app.error';
 
-export const POWERTRAIN_ROUTER = ({ container }: interfaces.Context) => {
+export const EXPRESS_POWERTRAIN_ROUTER = ({
+  container,
+}: interfaces.Context) => {
   const ROUTER = container.get<Router>(MODULE.INFRA.SERVER.HTTP.EXPRESS.ROUTER);
   const CONTROLLER = container.get<PowertrainController>(
     MODULE.APPLICATION.CONTROLLER.TELEMETRY.POWERTRAIN,

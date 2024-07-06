@@ -4,6 +4,7 @@ import { EXPRESS_APP_ROUTER } from './express/app.router';
 import { SERVER_MODULE } from '../../../infra/server/server.module';
 import { EXPRESS_DOCS_ROUTER } from './express/docs.router';
 import { DOCUMENTATION_MODULE } from '../../../infra/documentation/documentation.module';
+import { EXPRESS_POWERTRAIN_ROUTER } from './express/telemetry/powertrain.router';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -23,3 +24,7 @@ HTTP_ROUTER_MODULE.bind(HTTP_ROUTER_REGISTRY.EXPRESS.APP).toDynamicValue(
 HTTP_ROUTER_MODULE.bind(HTTP_ROUTER_REGISTRY.EXPRESS.DOCS).toDynamicValue(
   EXPRESS_DOCS_ROUTER,
 );
+
+HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.POWERTRAIN,
+).toDynamicValue(EXPRESS_POWERTRAIN_ROUTER);
