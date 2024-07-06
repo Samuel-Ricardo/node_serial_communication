@@ -8,4 +8,9 @@ export class PowertrainController {
     @inject(MODULE.APPLICATION.SERVICE.TELEMETRY.POWERTRAIN)
     private readonly service: IPowertrainService,
   ) {}
+
+  async getPowertrainTelemetry() {
+    const powertrain = (await this.service.read()).toDTO();
+    return { powertrain };
+  }
 }
