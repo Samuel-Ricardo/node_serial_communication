@@ -6,7 +6,7 @@ const _MODULE = new Container({
   defaultScope: 'Singleton',
 });
 
-export const TELEMETRY_USE_CASE_MODULE = Container.merge(
+export const TELEMETRY_SERVICE_MODULE = Container.merge(
   _MODULE,
   USE_CASE_MODULE,
 );
