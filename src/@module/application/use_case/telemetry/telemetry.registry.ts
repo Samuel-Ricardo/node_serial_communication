@@ -1,0 +1,7 @@
+export const TELEMETRY_USE_CASE_REGISTRY = {
+  POWERTRAIN: {
+    READ: Symbol.for(
+      'MODULE::APPLICATION::USE_CASE::TELEMETRY::POWERTRAIN::READ',
+    ),
+  },
+};
