@@ -1,3 +1,5 @@
+import { IPowertrainDTO } from '../../DTO/telemetry/powertrain/powertrain.dto';
+
 export class Powertrain {
   constructor(
     public readonly speed: number,
@@ -7,4 +9,12 @@ export class Powertrain {
       cvt: number;
     },
   ) {}
+
+  toDTO(): IPowertrainDTO {
+    return {
+      speed: this.speed,
+      rpm: this.rpm,
+      temperature: this.temperature,
+    };
+  }
 }
