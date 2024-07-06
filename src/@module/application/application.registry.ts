@@ -1,3 +1,4 @@
+import { CONTROLLER_REGISTRY } from './controller/controller.registry';
 import { GATEWAY_REGISTRY } from './gateway/gateway.registry';
 import { MIDDLEWARE_REGISTRY } from './middleware/middleware.registry';
 import { ROUTER_REGISTRY } from './router/router.registry';
@@ -10,4 +11,5 @@ export const APPLICATION_REGISTRY = {
   GATEWAY: GATEWAY_REGISTRY,
   USE_CASE: USE_CASE_REGISTRY,
   SERVICE: SERVICE_REGISTRY,
+  CONTROLLER: CONTROLLER_REGISTRY,
 };
