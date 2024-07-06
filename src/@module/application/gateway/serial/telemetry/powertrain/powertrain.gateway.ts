@@ -4,13 +4,12 @@ import { Powertrain } from '../../../../../domain/entity/telemetry/powertrain.en
 import { ISerialPortGateway } from '../../../../../domain/gateway/serial/serial.gateway';
 import { MODULE } from '../../../../../app.registry';
 import { IPowertrainDTO } from '../../../../../domain/DTO/telemetry/powertrain/powertrain.dto';
+import { injectGateway } from '../../../gateway.module';
 
 @injectable()
 export class SerialPortPowertrainGateway implements IPowertrainGateway {
-  constructor(
-    @inject(MODULE.APPLICATION.GATEWAY.SERIAL.SERIAL_PORT)
-    private readonly gateway: ISerialPortGateway,
-  ) {}
+  @injectGateway(MODULE.APPLICATION.GATEWAY.SERIAL.SERIAL_PORT)
+  private readonly gateway!: ISerialPortGateway;
 
   async readPowertrainTelemetry() {
     const result = await this.gateway.read();
