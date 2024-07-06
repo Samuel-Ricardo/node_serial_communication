@@ -49,8 +49,10 @@ export class SerialPortGateway implements ISerialPortGateway {
 
   async read(size?: number) {
     await this.open();
-    const result = Buffer.from(this.engine.read());
-    await this.close();
+    const result = Buffer.from(
+      this.engine.read(size || 1) || `{"data": "empty"}`,
+    );
+    this.close();
     return result;
   }
 

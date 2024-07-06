@@ -12,9 +12,9 @@ export const EXPRESS_POWERTRAIN_ROUTER = ({
     MODULE.APPLICATION.CONTROLLER.TELEMETRY.POWERTRAIN,
   );
 
-  ROUTER.get('/powertrain', (req, res) => {
+  ROUTER.get('/powertrain', async (req, res) => {
     try {
-      return CONTROLLER.getPowertrainTelemetry();
+      return res.status(200).send(await CONTROLLER.getPowertrainTelemetry());
     } catch (error) {
       if (error instanceof AppError)
         return res.status(error.status).send(error);
