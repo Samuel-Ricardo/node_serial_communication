@@ -6,7 +6,11 @@ import { MODULE } from '../../../app.registry';
 @injectable()
 export class PowertrainService implements IPowertrainService {
   constructor(
-    @inject(MODULE.APPLICATION)
-    private readonly read: ReadPowertrainTelemetryUseCase,
+    @inject(MODULE.APPLICATION.USE_CASE.TELEMETRY.POWERTRAIN.READ)
+    private readonly readTelemetry: ReadPowertrainTelemetryUseCase,
   ) {}
+
+  async read() {
+    return await this.readTelemetry.execute();
+  }
 }
