@@ -17,4 +17,8 @@ export class Powertrain {
       temperature: this.temperature,
     };
   }
+
+  static fromDTO(dto: IPowertrainDTO): Powertrain {
+    return new Powertrain(dto.speed, dto.rpm, dto.temperature);
+  }
 }
