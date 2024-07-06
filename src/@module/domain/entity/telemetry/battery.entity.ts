@@ -14,4 +14,8 @@ export class Battery {
       state_of_charge: this.state_of_charge,
     };
   }
+
+  static fromDTO(dto: IBatteryDTO): Battery {
+    return new Battery(dto.voltage, dto.current, dto.state_of_charge);
+  }
 }
