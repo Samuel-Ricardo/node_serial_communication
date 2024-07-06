@@ -1,3 +1,4 @@
+import { CONTROLLER_FACTORY } from './controller/controller.factory';
 import { GATEWEAY_FACTORY } from './gateway/gateway.factory';
 import { MIDDLEWARE_FACTORY } from './middleware/middleware.factory';
 import { ROUTER_FACTORY } from './router/router.factory';
@@ -10,4 +11,5 @@ export const APPLICATION_FACTORY = {
   GATEWAY: GATEWEAY_FACTORY,
   USE_CASE: USE_CASE_FACTORY,
   SERVICE: SERVICE_FACTORY,
+  CONTROLLER: CONTROLLER_FACTORY,
 };
