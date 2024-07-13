@@ -1,5 +1,10 @@
+import { logger } from './@lib/log/logger.lib';
+import { ENV } from './@module/infra/config/env/env.config';
 import { APP } from './app';
 
-APP.listen(3000, () =>
-  console.log('Listening on port 3000 | http://localhost:3000'),
+APP.listen(ENV.PORT, () =>
+  logger.info(
+    { context: 'SERVER', message: 'Server started' },
+    { url: `http://localhost:${ENV.PORT}`, port: ENV.PORT },
+  ),
 );

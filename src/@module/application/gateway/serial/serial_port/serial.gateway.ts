@@ -11,6 +11,16 @@ export class SerialPortGateway implements ISerialPortGateway {
     private readonly engine: SerialPort,
   ) {
     this.open();
+    logger.info(
+      {
+        context: 'SERIAL_PORT_GATEWAY',
+        message: 'Serial port gateway initialized',
+      },
+      {
+        readable: this.engine.readable,
+        open: this.engine.isOpen,
+      },
+    );
   }
 
   open() {

@@ -2,6 +2,9 @@ import 'reflect-metadata';
 
 import { MODULES } from './@module/app.factory';
 
+//INFO: STARTUP MODULES;
+MODULES.APPLICATION.GATEWAY.SERIAL.SERIAL_PORT();
+
 const APP = MODULES.INFRA.SERVER.HTTP.EXPRESS.APP();
 
 APP.use(MODULES.INFRA.SERVER.HTTP.EXPRESS.CORS());
