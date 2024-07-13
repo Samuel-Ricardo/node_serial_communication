@@ -13,12 +13,21 @@ export class SerialPortPowertrainGateway implements IPowertrainGateway {
   ) {}
 
   async readPowertrainTelemetry() {
-    const result = this.gateway
+    const telemetry = this.gateway
       .read()
       .toString('utf-8')
       .split('\r\n')
-      .map((value) => JSON.parse(value)) as IPowertrainDTO[];
+      .map((value) => this.parse(value))
+      .filter((value) => value !== null) as IPowertrainDTO[];
 
-    return Powertrain.fromDTOArray(result);
+    return Powertrain.fromDTOArray(telemetry);
+  }
+
+  private parse(value: string) {
+    try {
+      return JSON.parse(value);
+    } catch (error) {
+      return null;
+    }
   }
 }

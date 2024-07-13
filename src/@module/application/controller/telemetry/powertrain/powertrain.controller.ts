@@ -10,7 +10,7 @@ export class PowertrainController {
   ) {}
 
   async getPowertrainTelemetry() {
-    const powertrain = (await this.service.read()).toDTO();
+    const powertrain = (await this.service.read()).map((s) => s.toDTO());
     return { powertrain };
   }
 }
