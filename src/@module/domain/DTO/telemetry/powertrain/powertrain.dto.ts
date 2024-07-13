@@ -5,4 +5,5 @@ export interface IPowertrainDTO {
     engine: number;
     cvt: number;
   };
+  timestamp?: number;
 }

@@ -7,4 +7,5 @@ export interface IGyroscopeDTO {
   row: number;
   pitch: number;
   yaw?: number;
+  timestamp?: number;
 }
