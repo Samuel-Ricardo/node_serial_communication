@@ -4,6 +4,7 @@ import { Powertrain } from '../../../../domain/entity/telemetry/powertrain.entit
 import { ISerialPortGateway } from '../../../../domain/gateway/serial/serial.gateway';
 import { MODULE } from '../../../../app.registry';
 import { IPowertrainDTO } from '../../../../domain/DTO/telemetry/powertrain/powertrain.dto';
+import { serialize } from '../../../../../@lib/serializar/json/json.serializer';
 
 @injectable()
 export class SerialPortPowertrainGateway implements IPowertrainGateway {
@@ -17,17 +18,9 @@ export class SerialPortPowertrainGateway implements IPowertrainGateway {
       .read()
       .toString('utf-8')
       .split('\r\n')
-      .map((value) => this.parse(value))
+      .map((value) => serialize(value))
       .filter((value) => value !== null) as IPowertrainDTO[];
 
     return Powertrain.fromDTOArray(telemetry);
-  }
-
-  private parse(value: string) {
-    try {
-      return JSON.parse(value);
-    } catch (error) {
-      return null;
-    }
   }
 }
