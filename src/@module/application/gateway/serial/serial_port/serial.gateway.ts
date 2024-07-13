@@ -10,23 +10,30 @@ export class SerialPortGateway implements ISerialPortGateway {
     @inject(MODULE.INFRA.ENGINE.GATEWEAY.SERIAL.SERIAL_PORT)
     private readonly engine: SerialPort,
   ) {
-    this.engine.setEncoding('utf-8');
+    this.open();
   }
 
-  async open() {
-    if (!this.engine.isOpen)
-      this.engine.open(
-        (e) =>
-          e ??
-          logger.error({
-            context: 'SERIAL_PORT_GATEWAY',
-            message: 'Error opening serial port',
-            error: e,
-          }),
+  open() {
+    if (!this.engine.isOpen) {
+      this.engine.open((e) =>
+        e
+          ? logger.error({
+              context: 'SERIAL_PORT_GATEWAY',
+              message: 'Error opening serial port',
+              error: e,
+            })
+          : logger.info(
+              {
+                context: 'SERIAL_PORT_GATEWAY',
+                message: 'Serial port opened',
+              },
+              { readable: this.engine.readable },
+            ),
       );
+    }
   }
 
-  async close() {
+  close() {
     if (this.engine.isOpen)
       this.engine.close(
         (error) =>
@@ -47,17 +54,12 @@ export class SerialPortGateway implements ISerialPortGateway {
     this.engine.on('close', callback);
   }
 
-  async read(size?: number) {
-    await this.open();
-    const result = Buffer.from(
-      this.engine.read(size || 1) || `{"data": "empty"}`,
-    );
-    this.close();
+  read(size?: number) {
+    const result = Buffer.from(this.engine.read(size));
     return result;
   }
 
-  async write(data: Buffer) {
-    await this.open();
+  write(data: Buffer) {
     this.engine.write(
       data,
       (error) =>
@@ -68,18 +70,8 @@ export class SerialPortGateway implements ISerialPortGateway {
           error,
         }),
     );
-    await this.close();
   }
   stream(read: (chunk: Buffer) => void) {
-    this.engine.open((error) => {
-      if (error)
-        return logger.error({
-          context: 'SERIAL_PORT_GATEWAY',
-          message: 'Error opening serial port',
-          error,
-        });
-
-      this.engine.on('data', read);
-    });
+    this.engine.on('data', read);
   }
 }
