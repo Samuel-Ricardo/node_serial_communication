@@ -21,4 +21,8 @@ export class Powertrain {
   static fromDTO(dto: IPowertrainDTO): Powertrain {
     return new Powertrain(dto.speed, dto.rpm, dto.temperature);
   }
+
+  static fromDTOArray(dtos: IPowertrainDTO[]): Powertrain[] {
+    return dtos.map((dto) => Powertrain.fromDTO(dto));
+  }
 }

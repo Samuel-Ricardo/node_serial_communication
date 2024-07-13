@@ -2,7 +2,7 @@ import 'reflect-metadata';
 
 import { MODULES } from './@module/app.factory';
 
-//INFO: STARTUP MODULES;
+//INFO: STARTUP MODULES:
 MODULES.APPLICATION.GATEWAY.SERIAL.SERIAL_PORT();
 
 const APP = MODULES.INFRA.SERVER.HTTP.EXPRESS.APP();
