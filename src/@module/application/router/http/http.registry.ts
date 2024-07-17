@@ -8,4 +8,13 @@ export const HTTP_ROUTER_REGISTRY = {
       ),
     },
   },
+  SSE: {
+    EXPRESS: {
+      TELEMETRY: {
+        POWERTRAIN: Symbol.for(
+          'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::POWERTRAIN',
+        ),
+      },
+    },
+  },
 };

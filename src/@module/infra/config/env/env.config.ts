@@ -9,4 +9,7 @@ export const ENV = {
     PORT: process.env.SERIAL_PORT || 'COM9',
     BAUD_RATE: Number(process.env.BAUD_RATE) || 9600,
   },
+  TELEMETRY: {
+    REFRESH_RATE: Number(process.env.REFRESH_RATE) || 1000,
+  },
 };

@@ -14,4 +14,14 @@ export const HTTP_ROUTER_FACTORY = {
         ),
     },
   },
+  SSE: {
+    EXPRESS: {
+      TELEMETRY: {
+        POWERTRAIN: () =>
+          HTTP_ROUTER_MODULE.get<Router>(
+            HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.POWERTRAIN,
+          ),
+      },
+    },
+  },
 };

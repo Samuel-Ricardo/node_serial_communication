@@ -11,8 +11,9 @@ export const EXPRESS_POWERTRAIN_ROUTER = ({
   const CONTROLLER = container.get<PowertrainController>(
     MODULE.APPLICATION.CONTROLLER.TELEMETRY.POWERTRAIN,
   );
+  const PREFIX = '/telemetry/powertrain';
 
-  ROUTER.get('/powertrain', async (req, res) => {
+  ROUTER.get(PREFIX, async (req, res) => {
     try {
       return res.status(200).send(await CONTROLLER.getPowertrainTelemetry());
     } catch (error) {
