@@ -14,7 +14,8 @@ export const SSE_EXPRESS_POWERTRAIN_ROUTER = ({
   );
   const PREFIX = '/telemetry/powertrain';
 
-  ROUTER.get(`${PREFIX}/stream`, async (req, res) => {
+  //  ROUTER.get(`${PREFIX}/stream`, async (req, res) => {
+  ROUTER.get('/telemetry/powertrain/stream', async (req, res) => {
     try {
       res.writeHead(200, {
         'Content-Type': 'text/event-stream',
