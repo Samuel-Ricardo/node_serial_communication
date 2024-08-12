@@ -1,6 +1,7 @@
 import { Container } from 'inversify';
 import { TELEMETRY_USE_CASE_REGISTRY } from './telemetry.registry';
 import { ReadPowertrainTelemetryUseCase } from './powertrain/read_powertrain_telemetry.use_case';
+import { ReadBatteryTelemetryUseCase } from './battery/read_battery_telemetry.use_case';
 
 export const TELEMETRY_USE_CASE_MODULE = new Container({
   autoBindInjectable: true,
@@ -9,4 +10,8 @@ export const TELEMETRY_USE_CASE_MODULE = new Container({
 
 TELEMETRY_USE_CASE_MODULE.bind(TELEMETRY_USE_CASE_REGISTRY.POWERTRAIN.READ).to(
   ReadPowertrainTelemetryUseCase,
+);
+
+TELEMETRY_USE_CASE_MODULE.bind(TELEMETRY_USE_CASE_REGISTRY.BATTERY.READ).to(
+  ReadBatteryTelemetryUseCase,
 );
