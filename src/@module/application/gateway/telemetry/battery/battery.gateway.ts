@@ -1,19 +1,19 @@
 import { inject, injectable } from 'inversify';
-import { IBatteryService } from '../../../../domain/service/telemetry/battery/batteey.service';
 import { ISerialPortGateway } from '../../../../domain/gateway/serial/serial.gateway';
 import { MODULE } from '../../../../app.registry';
 import { IBatteryDTO } from '../../../../domain/DTO/telemetry/battery/battery.dto';
 import { Battery } from '../../../../domain/entity/telemetry/battery.entity';
 import { serialize } from '../../../../../@lib/serializar/json/json.serializer';
+import { IBatteryGateway } from '../../../../domain/gateway/telemetry/battery/battery.gateway';
 
 @injectable()
-export class SerialPortBatteryGateway implements IBatteryService {
+export class SerialPortBatteryGateway implements IBatteryGateway {
   constructor(
     @inject(MODULE.APPLICATION.GATEWAY.SERIAL.SERIAL_PORT)
     private readonly gateway: ISerialPortGateway,
   ) {}
 
-  async read() {
+  async readBatteryTelemetry() {
     const telemetry = this.gateway
       .read()
       .toString('utf-8')
