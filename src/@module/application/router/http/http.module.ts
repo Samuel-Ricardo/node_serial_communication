@@ -7,6 +7,8 @@ import { DOCUMENTATION_MODULE } from '../../../infra/documentation/documentation
 import { EXPRESS_POWERTRAIN_ROUTER } from './express/telemetry/powertrain.router';
 import { CONTROLLER_MODULE } from '../../controller/controller.module';
 import { SSE_EXPRESS_POWERTRAIN_ROUTER } from './sse/express/telemetry/powertrain.router';
+import { EXPRESS_BATTERY_ROUTER } from './express/telemetry/battery.router';
+import { SSE_EXPRESS_BATTERY_ROUTER } from './sse/express/telemetry/battery.router';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -33,5 +35,13 @@ HTTP_ROUTER_MODULE.bind(
 ).toDynamicValue(EXPRESS_POWERTRAIN_ROUTER);
 
 HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.BATTERY,
+).toDynamicValue(EXPRESS_BATTERY_ROUTER);
+
+HTTP_ROUTER_MODULE.bind(
   HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.POWERTRAIN,
 ).toDynamicValue(SSE_EXPRESS_POWERTRAIN_ROUTER);
+
+HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.BATTERY,
+).toDynamicValue(SSE_EXPRESS_BATTERY_ROUTER);

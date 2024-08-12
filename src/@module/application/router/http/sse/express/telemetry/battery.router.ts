@@ -3,8 +3,9 @@ import { interfaces } from 'inversify';
 import { MODULE } from '../../../../../../app.registry';
 import { BatteryController } from '../../../../../controller/telemetry/battery/battery.controller';
 import { AppError } from '../../../../../../../@lib/error/app.error';
+import { ENV } from '../../../../../../infra/config/env/env.config';
 
-export const SSE_EXPRESS_POWERTRAIN_ROUTER = ({
+export const SSE_EXPRESS_BATTERY_ROUTER = ({
   container,
 }: interfaces.Context) => {
   const ROUTER = container.get<Router>(MODULE.INFRA.SERVER.HTTP.EXPRESS.ROUTER);
