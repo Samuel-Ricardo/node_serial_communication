@@ -18,4 +18,8 @@ export class Battery {
   static fromDTO(dto: IBatteryDTO): Battery {
     return new Battery(dto.voltage, dto.current, dto.state_of_charge);
   }
+
+  static fromDTOArray(dtos: IBatteryDTO[]): Battery[] {
+    return dtos.map((dto) => Battery.fromDTO(dto));
+  }
 }
