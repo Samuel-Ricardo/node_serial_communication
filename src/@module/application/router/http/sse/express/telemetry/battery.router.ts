@@ -1,31 +1,31 @@
 import { Router } from 'express';
 import { interfaces } from 'inversify';
-import { PowertrainController } from '../../../../../controller/telemetry/powertrain/powertrain.controller';
-import { AppError } from '../../../../../../../@lib/error/app.error';
 import { MODULE } from '../../../../../../app.registry';
+import { BatteryController } from '../../../../../controller/telemetry/battery/battery.controller';
+import { AppError } from '../../../../../../../@lib/error/app.error';
 import { ENV } from '../../../../../../infra/config/env/env.config';
 
-export const SSE_EXPRESS_POWERTRAIN_ROUTER = ({
+export const SSE_EXPRESS_BATTERY_ROUTER = ({
   container,
 }: interfaces.Context) => {
   const ROUTER = container.get<Router>(MODULE.INFRA.SERVER.HTTP.EXPRESS.ROUTER);
-  const CONTROLLER = container.get<PowertrainController>(
-    MODULE.APPLICATION.CONTROLLER.TELEMETRY.POWERTRAIN,
+  const CONTROLLER = container.get<BatteryController>(
+    MODULE.APPLICATION.CONTROLLER.TELEMETRY.BATTERY,
   );
-  const PREFIX = '/telemetry/powertrain';
+  const PREFIX = '/telemetry/battery';
 
-  //  ROUTER.get(`${PREFIX}/stream`, async (req, res) => {
-  ROUTER.get('/telemetry/powertrain/stream', async (req, res) => {
+  ROUTER.get('/telemetry/battery/stream', async (req, res) => {
     try {
       res.writeHead(200, {
         'Content-Type': 'text/event-stream',
         'Cache-Control': 'no-cache',
         Connection: 'keep-alive',
       });
+
       const interval = setInterval(
         async () =>
           res.write(
-            `data: ${JSON.stringify(await CONTROLLER.getPowertrainTelemetry())} \n\n`,
+            `data: ${JSON.stringify(await CONTROLLER.getBatteryTelemetry())} \n\n`,
           ),
         ENV.TELEMETRY.REFRESH_RATE,
       );

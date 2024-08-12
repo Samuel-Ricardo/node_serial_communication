@@ -12,6 +12,10 @@ export const HTTP_ROUTER_FACTORY = {
         HTTP_ROUTER_MODULE.get<Router>(
           HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.POWERTRAIN,
         ),
+      BATTERY: () =>
+        HTTP_ROUTER_MODULE.get<Router>(
+          HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.BATTERY,
+        ),
     },
   },
   SSE: {
@@ -20,6 +24,10 @@ export const HTTP_ROUTER_FACTORY = {
         POWERTRAIN: () =>
           HTTP_ROUTER_MODULE.get<Router>(
             HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.POWERTRAIN,
+          ),
+        BATTERY: () =>
+          HTTP_ROUTER_MODULE.get<Router>(
+            HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.BATTERY,
           ),
       },
     },

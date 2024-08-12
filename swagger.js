@@ -17,6 +17,9 @@ const routes = [
   './src/@module/application/router/http/express/app.router.ts',
   './src/@module/application/router/http/express/docs.router.ts',
   './src/@module/application/router/http/express/telemetry/powertrain.router.ts',
+  './src/@module/application/router/http/express/telemetry/battery.router.ts',
+  './src/@module/application/router/http/sse/express/telemetry/powertrain.router.ts',
+  './src/@module/application/router/http/sse/express/telemetry/battery.router.ts',
 ];
 
 swaggerAutogen(outputFile, routes, doc);

@@ -13,7 +13,7 @@ export const EXPRESS_POWERTRAIN_ROUTER = ({
   );
   const PREFIX = '/telemetry/powertrain';
 
-  ROUTER.get(PREFIX, async (req, res) => {
+  ROUTER.get('/telemetry/powertrain', async (req, res) => {
     try {
       return res.status(200).send(await CONTROLLER.getPowertrainTelemetry());
     } catch (error) {
