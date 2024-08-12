@@ -18,4 +18,8 @@ export class Geography {
   static fromDTO(DTO: IGeographyDTO) {
     return new Geography(DTO.latitude, DTO.longitude, DTO.timestamp);
   }
+
+  static fromDTOArray(dtos: IGeographyDTO[]): Geography[] {
+    return dtos.map((dto) => Geography.fromDTO(dto));
+  }
 }
