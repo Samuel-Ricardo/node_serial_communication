@@ -6,6 +6,9 @@ export const HTTP_ROUTER_REGISTRY = {
       POWERTRAIN: Symbol.for(
         'MODULE::APPLICATION::ROUTER::HTTP::EXPRESS::TELEMETRY::POWERTRAIN',
       ),
+      BATTERY: Symbol.for(
+        'MODULE::APPLICATION::ROUTER::HTTP::EXPRESS::TELEMETRY::BATTERY',
+      ),
     },
   },
   SSE: {
@@ -13,6 +16,9 @@ export const HTTP_ROUTER_REGISTRY = {
       TELEMETRY: {
         POWERTRAIN: Symbol.for(
           'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::POWERTRAIN',
+        ),
+        BATTERY: Symbol.for(
+          'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::BATTERY',
         ),
       },
     },
