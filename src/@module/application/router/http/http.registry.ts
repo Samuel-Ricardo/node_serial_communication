@@ -9,6 +9,9 @@ export const HTTP_ROUTER_REGISTRY = {
       BATTERY: Symbol.for(
         'MODULE::APPLICATION::ROUTER::HTTP::EXPRESS::TELEMETRY::BATTERY',
       ),
+      GEOGRAPHY: Symbol.for(
+        'MODULE::APPLICATION::ROUTER::HTTP::EXPRESS::TELEMETRY::GEOGRAPHY',
+      ),
     },
   },
   SSE: {
@@ -19,6 +22,9 @@ export const HTTP_ROUTER_REGISTRY = {
         ),
         BATTERY: Symbol.for(
           'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::BATTERY',
+        ),
+        GEOGRAPHY: Symbol.for(
+          'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::GEOGRAPHY',
         ),
       },
     },
