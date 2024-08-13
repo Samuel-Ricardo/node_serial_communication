@@ -4,7 +4,7 @@ import { IGeographyService } from '../../../../domain/service/telemetry/geograph
 import { MODULE } from '../../../../app.registry';
 
 @injectable()
-export class GeographyGateway {
+export class GeographyController {
   constructor(
     @inject(MODULE.APPLICATION.SERVICE.TELEMETRY.GEOGRAPHY)
     private readonly service: IGeographyService,
