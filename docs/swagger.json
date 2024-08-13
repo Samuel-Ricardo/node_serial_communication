@@ -54,6 +54,19 @@
         }
       }
     },
+    "/telemetry/geography": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/telemetry/powertrain/stream": {
       "get": {
         "description": "",
@@ -65,6 +78,16 @@
       }
     },
     "/telemetry/battery/stream": {
+      "get": {
+        "description": "",
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/telemetry/geography/stream": {
       "get": {
         "description": "",
         "responses": {

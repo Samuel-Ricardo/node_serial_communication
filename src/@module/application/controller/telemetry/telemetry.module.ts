@@ -3,6 +3,7 @@ import { SERVICE_MODULE } from '../../service/service.module';
 import { TELEMETRY_CONTROLLER_REGISTRY } from './telemetry.registry';
 import { PowertrainController } from './powertrain/powertrain.controller';
 import { BatteryController } from './battery/battery.controller';
+import { GeographyController } from './geography/geography.controller';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -20,4 +21,8 @@ TELEMETRY_CONTROLLER_MODULE.bind(TELEMETRY_CONTROLLER_REGISTRY.POWERTRAIN).to(
 
 TELEMETRY_CONTROLLER_MODULE.bind(TELEMETRY_CONTROLLER_REGISTRY.BATTERY).to(
   BatteryController,
+);
+
+TELEMETRY_CONTROLLER_MODULE.bind(TELEMETRY_CONTROLLER_REGISTRY.GEOGRAPHY).to(
+  GeographyController,
 );

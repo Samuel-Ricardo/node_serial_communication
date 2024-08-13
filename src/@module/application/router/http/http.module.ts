@@ -9,6 +9,8 @@ import { CONTROLLER_MODULE } from '../../controller/controller.module';
 import { SSE_EXPRESS_POWERTRAIN_ROUTER } from './sse/express/telemetry/powertrain.router';
 import { EXPRESS_BATTERY_ROUTER } from './express/telemetry/battery.router';
 import { SSE_EXPRESS_BATTERY_ROUTER } from './sse/express/telemetry/battery.router';
+import { EXPRESS_GEOGRAPHY_ROUTER } from './express/telemetry/geography.router';
+import { SSE_EXPRESS_GEOGRAPHY_ROUTER } from './sse/express/telemetry/geography.router';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -39,9 +41,17 @@ HTTP_ROUTER_MODULE.bind(
 ).toDynamicValue(EXPRESS_BATTERY_ROUTER);
 
 HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.GEOGRAPHY,
+).toDynamicValue(EXPRESS_GEOGRAPHY_ROUTER);
+
+HTTP_ROUTER_MODULE.bind(
   HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.POWERTRAIN,
 ).toDynamicValue(SSE_EXPRESS_POWERTRAIN_ROUTER);
 
 HTTP_ROUTER_MODULE.bind(
   HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.BATTERY,
 ).toDynamicValue(SSE_EXPRESS_BATTERY_ROUTER);
+
+HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.GEOGRAPHY,
+).toDynamicValue(SSE_EXPRESS_GEOGRAPHY_ROUTER);

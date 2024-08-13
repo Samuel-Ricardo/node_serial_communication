@@ -16,6 +16,10 @@ export const HTTP_ROUTER_FACTORY = {
         HTTP_ROUTER_MODULE.get<Router>(
           HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.BATTERY,
         ),
+      GEOGRAPHY: () =>
+        HTTP_ROUTER_MODULE.get<Router>(
+          HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.GEOGRAPHY,
+        ),
     },
   },
   SSE: {
@@ -28,6 +32,10 @@ export const HTTP_ROUTER_FACTORY = {
         BATTERY: () =>
           HTTP_ROUTER_MODULE.get<Router>(
             HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.BATTERY,
+          ),
+        GEOGRAPHY: () =>
+          HTTP_ROUTER_MODULE.get<Router>(
+            HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.GEOGRAPHY,
           ),
       },
     },
