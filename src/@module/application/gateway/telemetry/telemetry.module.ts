@@ -3,6 +3,7 @@ import { SERIAL_TELEMETRY_GATEWAY_REGISTRY } from './telemetry.registy';
 import { SerialPortPowertrainGateway } from './powertrain/powertrain.gateway';
 import { SERIAL_GATEWAY_MODULE } from '../serial/serial.module';
 import { SerialPortBatteryGateway } from './battery/battery.gateway';
+import { SerialPortGeographyGateway } from './geography/geography.gateway';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -20,3 +21,7 @@ SERIAL_TELEMETRY_GATEWAY_MODULE.bind(
 SERIAL_TELEMETRY_GATEWAY_MODULE.bind(
   SERIAL_TELEMETRY_GATEWAY_REGISTRY.BATTERY,
 ).to(SerialPortBatteryGateway);
+
+SERIAL_TELEMETRY_GATEWAY_MODULE.bind(
+  SERIAL_TELEMETRY_GATEWAY_REGISTRY.GEOGRAPHY,
+).to(SerialPortGeographyGateway);
