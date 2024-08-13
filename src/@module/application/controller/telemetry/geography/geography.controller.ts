@@ -10,7 +10,7 @@ export class GeographyController {
     private readonly service: IGeographyService,
   ) {}
 
-  async read(): Promise<Geography[]> {
+  async getTelemetry(): Promise<Geography[]> {
     return await this.service.read();
   }
 }
