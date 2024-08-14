@@ -12,6 +12,9 @@ export const HTTP_ROUTER_REGISTRY = {
       GEOGRAPHY: Symbol.for(
         'MODULE::APPLICATION::ROUTER::HTTP::EXPRESS::TELEMETRY::GEOGRAPHY',
       ),
+      GYROSCOPE: Symbol.for(
+        'MODULE::APPLICATION::ROUTER::HTTP::EXPRESS::TELEMETRY::GYROSCOPE',
+      ),
     },
   },
   SSE: {
@@ -25,6 +28,9 @@ export const HTTP_ROUTER_REGISTRY = {
         ),
         GEOGRAPHY: Symbol.for(
           'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::GEOGRAPHY',
+        ),
+        GYROSCOPE: Symbol.for(
+          'MODULE::APPLICATION::ROUTER::HTTP::SSE::EXPRESS::TELEMETRY::GYROSCOPE',
         ),
       },
     },
