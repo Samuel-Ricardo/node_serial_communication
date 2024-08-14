@@ -8,6 +8,7 @@ export class Powertrain {
       engine: number;
       cvt: number;
     },
+    public readonly timestamp?: number,
   ) {}
 
   toDTO(): IPowertrainDTO {
