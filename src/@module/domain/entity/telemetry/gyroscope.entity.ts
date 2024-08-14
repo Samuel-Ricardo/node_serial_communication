@@ -1,6 +1,6 @@
 import { IGyroscopeDTO } from '../../DTO/telemetry/gyroscope/gyroscope.dto';
 
-export class Powertrain {
+export class Gyroscope {
   constructor(
     public readonly acceleration: {
       x: number;
@@ -23,13 +23,17 @@ export class Powertrain {
     };
   }
 
-  fromDTO(dto: IGyroscopeDTO): Powertrain {
-    return new Powertrain(
+  static fromDTO(dto: IGyroscopeDTO): Gyroscope {
+    return new Gyroscope(
       dto.acceleration,
       dto.row,
       dto.pitch,
       dto.yaw,
       dto.timestamp,
     );
+  }
+
+  static fromDTOArray(dtos: IGyroscopeDTO[]): Gyroscope[] {
+    return dtos.map(Gyroscope.fromDTO);
   }
 }
