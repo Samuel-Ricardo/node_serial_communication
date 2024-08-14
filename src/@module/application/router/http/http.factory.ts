@@ -20,6 +20,10 @@ export const HTTP_ROUTER_FACTORY = {
         HTTP_ROUTER_MODULE.get<Router>(
           HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.GEOGRAPHY,
         ),
+      GYROSCOPE: () =>
+        HTTP_ROUTER_MODULE.get<Router>(
+          HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.GYROSCOPE,
+        ),
     },
   },
   SSE: {
@@ -36,6 +40,10 @@ export const HTTP_ROUTER_FACTORY = {
         GEOGRAPHY: () =>
           HTTP_ROUTER_MODULE.get<Router>(
             HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.GEOGRAPHY,
+          ),
+        GYROSCOPE: () =>
+          HTTP_ROUTER_MODULE.get<Router>(
+            HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.GYROSCOPE,
           ),
       },
     },
