@@ -20,10 +20,12 @@ const routes = [
   './src/@module/application/router/http/express/telemetry/powertrain.router.ts',
   './src/@module/application/router/http/express/telemetry/battery.router.ts',
   './src/@module/application/router/http/express/telemetry/geography.router.ts',
+  './src/@module/application/router/http/express/telemetry/gyroscope.router.ts',
 
   './src/@module/application/router/http/sse/express/telemetry/powertrain.router.ts',
   './src/@module/application/router/http/sse/express/telemetry/battery.router.ts',
   './src/@module/application/router/http/sse/express/telemetry/geography.router.ts',
+  './src/@module/application/router/http/sse/express/telemetry/gyroscope.router.ts',
 ];
 
 swaggerAutogen(outputFile, routes, doc);
