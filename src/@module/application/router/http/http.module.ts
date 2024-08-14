@@ -11,6 +11,8 @@ import { EXPRESS_BATTERY_ROUTER } from './express/telemetry/battery.router';
 import { SSE_EXPRESS_BATTERY_ROUTER } from './sse/express/telemetry/battery.router';
 import { EXPRESS_GEOGRAPHY_ROUTER } from './express/telemetry/geography.router';
 import { SSE_EXPRESS_GEOGRAPHY_ROUTER } from './sse/express/telemetry/geography.router';
+import { EXPRESS_GYROSCOPE_ROUTER } from './express/telemetry/gyroscope.router';
+import { SSE_EXPRESS_GYROSCOPE_ROUTER } from './sse/express/telemetry/gyroscope.router';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -45,6 +47,10 @@ HTTP_ROUTER_MODULE.bind(
 ).toDynamicValue(EXPRESS_GEOGRAPHY_ROUTER);
 
 HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.EXPRESS.TELEMETRY.GYROSCOPE,
+).toDynamicValue(EXPRESS_GYROSCOPE_ROUTER);
+
+HTTP_ROUTER_MODULE.bind(
   HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.POWERTRAIN,
 ).toDynamicValue(SSE_EXPRESS_POWERTRAIN_ROUTER);
 
@@ -55,3 +61,7 @@ HTTP_ROUTER_MODULE.bind(
 HTTP_ROUTER_MODULE.bind(
   HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.GEOGRAPHY,
 ).toDynamicValue(SSE_EXPRESS_GEOGRAPHY_ROUTER);
+
+HTTP_ROUTER_MODULE.bind(
+  HTTP_ROUTER_REGISTRY.SSE.EXPRESS.TELEMETRY.GYROSCOPE,
+).toDynamicValue(SSE_EXPRESS_GYROSCOPE_ROUTER);
