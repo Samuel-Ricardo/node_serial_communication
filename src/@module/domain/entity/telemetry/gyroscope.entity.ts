@@ -22,4 +22,14 @@ export class Powertrain {
       timestamp: this.timestamp,
     };
   }
+
+  fromDTO(dto: IGyroscopeDTO): Powertrain {
+    return new Powertrain(
+      dto.acceleration,
+      dto.row,
+      dto.pitch,
+      dto.yaw,
+      dto.timestamp,
+    );
+  }
 }
