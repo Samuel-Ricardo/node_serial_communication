@@ -4,6 +4,7 @@ import { TELEMETRY_SERVICE_REGISTRY } from './telemetry.registry';
 import { PowertrainService } from './powertrain/powertrain.service';
 import { BatteryService } from './battery/battery.service';
 import { GeographyService } from './geography/geography.service';
+import { GyroscopeService } from './gyroscope/gyroscope.service';
 
 const _MODULE = new Container({
   autoBindInjectable: true,
@@ -25,4 +26,8 @@ TELEMETRY_SERVICE_MODULE.bind(TELEMETRY_SERVICE_REGISTRY.BATTERY).to(
 
 TELEMETRY_SERVICE_MODULE.bind(TELEMETRY_SERVICE_REGISTRY.GEOGRAPHY).to(
   GeographyService,
+);
+
+TELEMETRY_SERVICE_MODULE.bind(TELEMETRY_SERVICE_REGISTRY.GYROSCOPE).to(
+  GyroscopeService,
 );
